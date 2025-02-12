@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recurson</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //tail recursion
+    function rec1(n){
+
+    if(n>0){
+        rec1(n-1);
+        console.log("tail:"+n)
+    }
+  }
+  rec1(4)
+  console.log("********************************")
+</script>
+
+
+<script>
+      //head recursion
+  function rec2(n) {
+    if (n > 0) {
+      console.log("HEAD " + n);
+      rec2(n - 1);
+    }
+  }
+rec2(4)
+console.log("********************************")
+
+</script>
+
+
+<script>
+    //nested recursion
+
+function rec(n) {
+    if (n > 0) {
+        console.log(n);
+      rec(rec(n - 1));
+   
+    }
+  }
+
+
+</script>
+
+<script>
+    //tree recursion
+function treerecursion(n){
+    if(n>0)
+        {
+            console.log("tree " + n);
+            treerecursion(n-1)
+            treerecursion(n-1)
+        }
+     }
+
+
+     function treerecursion(n){
+        if(n>0)
+            {
+                console.log(n)
+                treerecursion(n-1)
+                treerecursion(n-1)
+            }
+     }
+
+
+
+treerecursion(4)
+console.log("********************************")
+</script>
+
+
+
+
+</html>
