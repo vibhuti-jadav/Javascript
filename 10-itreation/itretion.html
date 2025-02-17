@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for each</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+    let name=["java","royal enfield","hunter","bmw","classic"]
+
+    let name2 =[]
+
+    name.forEach((ele) => {  
+         let name2 =name.map((ele)=>ele.toLocaleUpperCase())
+
+        console.log(ele.toLocaleUpperCase())
+    })
+
+    // let name2=name.filter(ele=>ele.length > 5)   
+    
+    console.log(name2)
+        name.forEach((ele)=>{
+            document.write(`<h1>${ele}</h1>`)
+        })
+
+
+     
+</script>
+</html>
