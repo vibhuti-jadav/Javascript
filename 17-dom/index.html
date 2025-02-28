@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- tag -->
+    <h1>welcome to javascript</h1>
+
+    <!-- class -->
+    <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum quidem similique minus placeat. Doloribus!</p>
+    <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum quidem similique minus placeat. Doloribus!</p>
+    <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatum quidem similique minus placeat. Doloribus!</p>
+
+    <!-- id -->
+     <b id="js">A Huge scope in Javascript</b>
+    
+     <!-- query -->
+
+        <div class="qc">
+            <p>this is a query</p>
+            <p>this is a query</p>
+            <p>this is a query</p>
+            <p>this is a query</p>
+        </div>
+
+
+
+
+     <p id="cs">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos in, perspiciatis harum quae sed deleniti?</p>
+</body>
+
+<script>
+
+    //tag taget 
+    let first = document.getElementsByTagName("h1")      
+    console.log(first)
+
+    //class target
+    let second = document.getElementsByClassName("paragraph")      
+    console.log(second)
+
+    //id target
+    let third = document.getElementById("js")      
+    console.log(third)
+
+    //query taget
+    let fourth=document.querySelector(".qc")
+    console.log(fourth)
+
+
+    //-------------------------------css-in-js
+
+    document.getElementById("cs").style.color="blue";
+    document.getElementById("cs").style.backgroundColor="gray";
+    document.getElementById("cs").style.fontFamily="arial";
+    document.getElementById("cs").style.padding="10px";
+
+             
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theme</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        transition: all 0.5s ease-in;
+    }
+</style>
+<body>
+
+    <div class="container  position-relative position-absolute bottom-0 start-50 translate-middle-x d-flex justify-content-center gap-3 mb-3">
+            <button type="button" class="btn btn-primary" id="blue">Blue</button>
+            <button type="button" class="btn btn-secondary" id="gray">gray</button>
+            <button type="button" class="btn btn-success" id="green">Green</button>
+            <button type="button" class="btn btn-danger" id="red">Red</button>
+            <button type="button" class="btn btn-warning" id="yellow">Yellow</button>
+            <button type="button" class="btn btn-info" id="orange">orange</button>
+            <button type="button" class="btn btn-light border border-gray" id="white">Light</button>
+            <button type="button" class="btn btn-black border border-black" id="black">black</button>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+
+
+    let body_color=document.querySelector("body")
+
+    function Colorbtn(c){
+       body_color.style.backgroundColor =c
+    }
+
+    let blue=document.getElementById("blue").onclick = ()=>Colorbtn("blue")
+    let gray=document.getElementById("gray").onclick = ()=>Colorbtn("gray")
+    let green=document.getElementById("green").onclick = ()=>Colorbtn("green")
+    let red=document.getElementById("red").onclick = ()=>Colorbtn("red")
+    let yellow=document.getElementById("yellow").onclick = ()=>Colorbtn("yellow")
+    let orange=document.getElementById("orange").onclick = ()=>Colorbtn("orange")
+    let white=document.getElementById("white").onclick = ()=>Colorbtn("white")
+    let black=document.getElementById("black").onclick = ()=>Colorbtn("black")
+
+
+
+</script>
+</html>
