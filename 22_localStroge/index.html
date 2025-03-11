@@ -11,7 +11,7 @@
 />
 </head>
 <body>
-    
+
     <div class="container mx-auto shadow mt-3 p-4 bg-secondary bg-gradient">
         <h2 class="text-center">Bike Information</h2>
          <input type="text" placeholder="enter bike img sorce" id="img" class="form-control  mb-3 border border-primary" >
@@ -21,19 +21,20 @@
 
         <div class="d-grid gap-2 col-6 mx-auto ">
             <button class="btn btn-primary rounded-5" onclick="add()">Add</button>
-          </div>
-
-  
-
+          </div> 
     </div>
-     
-        <div class="row row-cols-1 row-cols-md-4 gx-0 gy-3 mt-5" id="show">
+
+    <div class="container">
+       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-0 gy-3 mt-5" id="show">
        
         </div>
+    </div>
+     
+       
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         let show =document.getElementById("show")
@@ -48,28 +49,54 @@
             localStorage.setItem("arr", JSON.stringify(array))
 
             showItem(arr)
+            location.reload()
         }
 
 
-        function add(){
+ let name = document.getElementById("name")
+ let price = document.getElementById("price")
+ let rate = document.getElementById("rate")
+ let img = document.getElementById("img")
 
+        function add(){
         let obj = {
             id:Math.round(Math.random()*10000),
-            name : document.getElementById("name").value,
-            price:document.getElementById("price").value,
-            rate:document.getElementById("rate").value,
-            img:document.getElementById("img").value,
+            // name : document.getElementById("name").value,
+            // price:document.getElementById("price").value,
+            // rate:document.getElementById("rate").value,
+            // img:document.getElementById("img").value,
 
-            }
 
-            arr.push(obj)
-      
+            name :name.value,
+            price :price.value,
+            rate :rate.value,
+            img :img.value
 
+     }
+
+             if(img.name != "")
+          {
+            let newArr=  arr.map((ele) =>
+            {
+                  if(ele.id == img.name)
+                  {
+                      ele = obj;
+                  }
+                  return ele;
+              })
+              setLocal(newArr)
+          }
+          else{
+              arr.push(obj)
+          
+              setLocal(arr)
+          }
+
+            // arr.push(obj)
             // localStorage.setItem("arr",JSON.stringify(arr))
 
             location.reload()
-            setLocal(arr)
-
+            // setLocal(arr)
 }
 
 
@@ -80,6 +107,24 @@
              location.reload()
         }
 
+
+
+
+ 
+ 
+
+ function edit(id){
+    let newObj = arr.find((ele) => ele.id == id)
+    console.log(newObj)
+    img.value = newObj.img
+    name.value = newObj.name
+    price.value = newObj.price
+    rate.value = newObj.rate
+    img.name=id;
+}
+
+     
+ 
 
 
         function showItem(){
@@ -94,7 +139,8 @@
               <h5 class="card-title">${ele.name}</h5>
               <p class="card-text">${ele.price}</p>
               <p class="card-text">${ele.rate}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a onclick="edit(${ele.id})" class="btn btn-primary btn-sm"><i class="ri-edit-2-line"></i></a>
+                   <button class="btn btn-secondary btn-sm w-50">More</button>
             </div>
           </div>
 
