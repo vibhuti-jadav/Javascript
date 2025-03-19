@@ -123,9 +123,6 @@
 
 // }
 
-
-
-
 let task = document.getElementById("task")
 let add = document.getElementById("add")
 let tbody = document.getElementById("tbody")
@@ -155,11 +152,6 @@ function sorting(){
 }
 
 
-let a= 10;
-let b = 20;
-
-b = b-a // 20 - 10 == 10
-a = b = 20
 
 
 
