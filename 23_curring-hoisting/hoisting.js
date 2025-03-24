@@ -23,8 +23,6 @@ var dev = () =>{
     console.log("workng")
 }
 
-
-
 let val = dev
 
 
