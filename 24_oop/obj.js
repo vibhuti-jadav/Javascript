@@ -4,15 +4,11 @@
 //     age : 22
 // }
 
-// // console.log(obj)
+// console.log(obj)
 
 
-// // let obj1 = new Object("rahul", "teacher", 30)
-
-
-
-// // console.log(obj1.name, obj1.post, obj1.age)
-
+// let obj1 = new Object("rahul", "teacher", 30)
+// console.log(obj1.name, obj1.post, obj1.age)
 
 
 // class Object {
@@ -73,11 +69,7 @@ class includ{
     }
 
 }
-
+  
 let inc = new includ("vibhuti")
-
-
 console.log(inc.includes("u"))
-
-
 console.log(inc.charAt(4))

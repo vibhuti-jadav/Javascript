@@ -20,7 +20,6 @@ const user = new reg()
 
 user.login("vibhuti","vibhu24")
 
-
 class Array
 {
     constructor(){
