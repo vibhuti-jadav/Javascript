@@ -42,8 +42,6 @@ pass1.addEventListener("change", function(e){
         let span2 = document.getElementById("span2")
         span2.style.display = "block"
     }
-
-
 })
 
 
