@@ -1,11 +1,8 @@
 
-
-
 function start(){
 
     let time = document.getElementById("time").value;
-    
-    
+
         let ang = 6;
         let t =  setInterval(function(){
                 arrow.style.rotate = `${ang}deg`
@@ -20,12 +17,9 @@ function start(){
     
             }, time*1000)
     
-    
-           
-        
     }
     
-    
+
     function timeUp(){
         let clock = document.getElementById("clock")
         clock.className += " shaking" 
@@ -34,11 +28,11 @@ function start(){
         document.querySelector(".js")
     }
      
-    
+ 
     function stoping(){
         document.querySelector("audio").pause();
         let clock = document.getElementById("clock")
-        clock.className = "clock border border-2 border-dark rounded-circle d-flex justify-center align-items-center"
+        clock.className = "clock border border-2 shadow  rounded-3 d-flex justify-center align-items-center"
     }
     
 
@@ -65,7 +59,8 @@ function start(){
       );
     }
     
-    function confettiExplosion(origin) {
+function confettiExplosion(origin) 
+   {
       fire(0.25, {
         spread: 26,
         startVelocity: 55,
@@ -93,6 +88,7 @@ function start(){
       });
     }
     
+
     Array.from(triggers).forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const rect = trigger.getBoundingClientRect();
@@ -112,3 +108,4 @@ function start(){
         confettiExplosion(origin);
       });
     });
+
