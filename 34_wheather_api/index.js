@@ -12,7 +12,6 @@ fetch(`https://pro.openweathermap.org/data/2.5/forecast/?q=paris&appid=1709c9e37
 .then((res) => console.log(res))
 
 
-
 cityInput.addEventListener("change",function(e){
     let city = e.target.value
     console.log(city)
@@ -24,17 +23,13 @@ cityInput.addEventListener("change",function(e){
         showWeather(res)
     })
 
-
-
     fetch(`https://pro.openweathermap.org/data/2.5/forecast/?q=${city}&appid=1709c9e37240d686e3ff7678dde4d81e`)
     .then((res) => res.json())
     .then((res) => {console.log(res)
         showWeatherList(res)
     })
-    
 
 })
-
 
 
 
@@ -46,7 +41,7 @@ function showWeather(data){
                     <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" />
                     <div class="row g-2">
                         <div class="col-6">
-                            <div class="shadow p-2">
+                            <div class="shadow p-2 ">
                                 <i class="ri-temp-hot-line"></i>
                                 <br/>
                                 Temp : ${(data.main.temp - 273.15).toFixed(2)} &deg;c
@@ -82,7 +77,8 @@ function showWeatherList(ele){
     
     ele.list.map((data)=>{
         list.innerHTML += `
-             <div class="row my-2 shadow-md">
+
+             <div class="row  my-2 shadow-md rounded p-2 bg">
                           <div class="col-2">
                               <p>${data.dt_txt}</p>
                           </div>
@@ -106,8 +102,8 @@ function showWeatherList(ele){
                                   Humidity : ${data.main.humidity} %
                               </div>
                           </div>
-      
                         </div>
+
         `
     })
 

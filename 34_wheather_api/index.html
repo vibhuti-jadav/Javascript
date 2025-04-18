@@ -10,29 +10,38 @@
     rel="stylesheet"
 />
 </head>
-<body>
+
+<style>
+
+    .bg{
+        background-image: url(https://pics.freeartbackgrounds.com/fullhd/Blue_Cloudy_Sky_Background-1074.jpg);
+        background-size: cover;
+}
+
+</style>
+<body style="background-image: url(https://i.pinimg.com/736x/bd/db/bb/bddbbb337efa1b32e91f8e4472198234.jpg); background-size: cover; background-repeat: no-repeat;">
     
     <div class="container">
-        <div class="row justify-content-center my-5">
+        <div class="row justify-content-center my-5 ">
             <div class="col-4">
                 <input type="text" placeholder="search city weather" class="shadow-sm form-control" id="city">
 
-                <div class="w-100 my-2 rounded shadow-sm p-2" id="weatherCard">
+                <div class="w-100 mt-5 rounded shadow-sm   bg p-2" id="weatherCard">
                   
                 </div>
 
             </div>
         </div>
         
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <div class="w-100 my-2 rounded shadow-sm p-2" id="weatherList">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-1 justify-content-center">
+            <div class="col ">
+                <div class="w-100 my-2 rounded shadow-sm p-2 " id="weatherList">
                    
                   </div>
             </div>
         </div>
-        
     </div>
+
 
 </body>
 <script src="index.js"></script>
