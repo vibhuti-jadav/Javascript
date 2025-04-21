@@ -75,27 +75,29 @@ function showWeather(data){
 function showWeatherList(ele){
     list.innerHTML = ""
     
+       
     ele.list.map((data)=>{
+        
         list.innerHTML += `
 
-             <div class="row  my-2 shadow-md rounded p-2 bg">
-                          <div class="col-2">
+             <div class="row row-cols-1  my-2 shadow-md rounded bg2  " style="margin-left: 10px; margin-right: 10px;" >
+                          <div class="col ">
                               <p>${data.dt_txt}</p>
                           </div>
-                          <div class="col-2">
+                          <div class="col">
                               <b>${data.weather[0].main}</b>
                               <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="">
                           </div>
                           
-                          <div class="col-2">
+                          <div class="col">
                               <i class="ri-temp-hot-line"></i>
                               Temp : ${(data.main.temp - 273.15).toFixed(2)} &deg;c
                           </div>
-                          <div class="col-2">
+                          <div class="col">
                               <i class="ri-windy-line"></i>
                                       wind : ${data.wind.speed} m/s
                           </div>
-                          <div class="col-2">
+                          <div class="col">
                               <div class="shadow p-2">
                                   <i class="ri-water-percent-line"></i>
                                   <br/>
