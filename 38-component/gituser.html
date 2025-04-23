@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git-User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>git-User</h1>    
+
+    <a href="repos.html" type="button"  class="btn btn-outline-primary">Github-user</a>
+
+</body>
+<script type="module">
+    let url ='https://api.github.com/users?page=5'
+    import fetchapiData from "./fetchapi.js"
+    let gitData = await fetchapiData(url)
+    console.log(gitData)
+
+</script>
+</html>
