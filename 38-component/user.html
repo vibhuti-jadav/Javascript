@@ -1,36 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-
+    <title>user</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>USER</h1>    
-
-    <div class="container ">
-        <div class="row" id="user">
-        
-        </div>
+    <div class="container">
+        <div class="row" id="pro"></div>
     </div>
+
+    <script type="module">
+        import fetchapi from "./fetchapi.js";
+        import card from "./card.js";
+
+        const pro = document.getElementById("pro");
+
+        const showLoading = () => {
+            pro.innerHTML = `
+                <div class="d-flex flex-column align-items-center">
+                    <img width="400px" src="https://i.pinimg.com/originals/8a/c1/29/8ac12962c05648c55ca85771f4a69b2d.gif" />
+                    <h3>Loading..!</h3>
+                </div>
+            `;
+        };
+
+        const showError = () => {
+            document.body.innerHTML = `
+                <div class="text-center">
+                    <img width="400px" src="https://i.pinimg.com/originals/e4/30/10/e430101033efff9a294eaafecbac846a.gif" />
+                    <h3>Something went wrong while fetching products!</h3>
+                </div>
+            `;
+        };
+
+        const loadProducts = async () => {
+            showLoading();
+
+            try {
+                const { data } = await fetchapi('https://randomuser.me/api?results=5');
+
+                // Clear the loading screen
+                pro.innerHTML = "";
+
+                data.results.map(results => {
+                    pro.innerHTML += `
+                        <div class="col-3 mb-4">
+                            ${card(results.picture.large, results.name.first, results.state)}
+                        </div>
+                    `;
+                });
+            } catch (err) {
+                console.error("Error fetching user:", err);
+                showError();
+            }
+        };
+
+        loadProducts();
+    </script>
 </body>
-
-<script type="module">
-
-import card from "./card.js"
-import {userData} from "./index.js"
-
-let user = document.getElementById("user")  
-
-userData.results.map((ele)=>{
-    user.innerHTML += `<div class="col-3">${card(ele.picture.large,ele.name.first,ele.phone)}</div>`
-})
-
-
-</script>
-
-
-
 </html>
+

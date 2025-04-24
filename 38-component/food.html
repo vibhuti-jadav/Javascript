@@ -4,33 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>food</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 <body>
-    <h1>food</h1>    
 
-    <div class="container ">
-        <div class="row" id="food">
-        
-        </div>
+    <div class="container">
+        <div class="row" id="food"></div>
     </div>
+    
 </body>
 
 
 
-<script  type="module"> 
+<script type="module">
+    import card from "./card.js";
+    import fetchapi from "./fetchapi.js"; // This is your async fetch function
 
-    import card from "./card.js"
-    import {foodData} from "./index.js"
-    
+    const food = document.getElementById("food");
 
-let food = document.getElementById("food")  
+    const showLoading = () => {
+        food.innerHTML = `
+        <div class="d-flex flex-column align-items-center">
+            <img width="400px" src="https://i.pinimg.com/originals/8a/c1/29/8ac12962c05648c55ca85771f4a69b2d.gif" />
+            <h3>Loading..!</h3>
+                </div>
+        `;
+    };
 
-foodData.categories.map((ele)=>{
-food.innerHTML += `<div class="col-3">${card(ele.strCategoryThumb,ele.idCategory,ele.strCategory  )}</div>`
-})
+    const showError = () => {
+        document.body.innerHTML = `
+          <div class="text-center">
+            <img width="400px" src="https://i.pinimg.com/originals/e4/30/10/e430101033efff9a294eaafecbac846a.gif" />
+            <h3>Something went wrong in API..!</h3>
+             </div>
+        `;
+    };
 
+    const loadProducts  = async () => {
+        showLoading();
+        try {
+            const { data } = await fetchapi("https://www.themealdb.com/api/json/v1/1/categories.php");
+           
+            food.innerHTML = "";
+            data.categories.map(ele => {
+                food.innerHTML += `
+                    <div class="col-3">
+                        ${card(ele.strCategoryThumb, ele.idCategory, ele.strCategory)}</div>
+                `;
+            });
+        } catch (err) {
+            console.error("Error loading data:", err);
+            showError();
+        }
+    };
+    loadProducts();
 </script>
 
+
 </html>
+
