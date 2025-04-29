@@ -1,6 +1,32 @@
+// import dataForm from "./form.js"
+
+
+let dataFormId = document.getElementById("dataForm")
+// dataFormId.innerHTML = dataForm()
 
 let formData = document.getElementById("formData")
-const url = "http://localhost:4050/user"
+
+
+
+const url = "http://localhost:4050/user/"
+
+
+
+formData.addEventListener("submit", function(e){
+    e.preventDefault()
+    
+    let obj = {
+        id: Math.round(Math.random()*1000),
+        name : e.target[0].value,
+        age : e.target[1].value,
+        pic : e.target[2].value
+    }
+    postData(obj)
+})
+
+
+
+
 
 
 
@@ -14,31 +40,7 @@ let obj = {
     }
 }
     let resp = await fetch(url, obj)
-    // let data = await res.json();
-    // console.log(dat)
 } 
-
-
-
-formData.addEventListener("submit", function(e){
-    e.preventDefault()
-    
-    let obj = {
-        name : e.target[0].value,
-        age : e.target[1].value,
-        pic : e.target[2].value
-    }
-    
-    postData(obj)
-})
-
-
-
-
-
-
-
-
 
 
 
@@ -52,7 +54,9 @@ async function fetchData(){
 
 function showData(data){
 
+ 
     data.map((ele) => {
+  
         document.getElementById("users").innerHTML += `<div class="col-3">
                 <div class="shadow">
                     <div class="card" >
@@ -60,17 +64,40 @@ function showData(data){
                         <div class="card-body">
                           <h5 class="card-title">${ele.name}</h5>
                           <p class="card-text">Age: ${ele.age}</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a  class="btn btn-danger" onclick="deleteUser(${ele.id})">Delete</a>
+                          <a  class="btn btn-primary">Update</a>
                         </div>
                       </div>
                 </div>
             </div>`
     })
 
+
+
+}
+fetchData()
+
+
+
+async function deleteUser(id){
+
+   const resp = await fetch(url+id, {
+         method:"DELETE"
+    })
+    console.log(resp)
 }
 
 
+async function patchUser(id){
+    let user = {
+        age : 10
+    }
+    const resp = await fetch(url+id , {
+        method: "PATCH",
+        body : JSON.stringify(user)
+    })
+}
 
-fetchData()
+// patchUser(940)
 
 
