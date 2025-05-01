@@ -35,16 +35,7 @@ function start(){
         clock.className = "clock border border-2 shadow  rounded-3 d-flex justify-center align-items-center"
     }
     
-
-
-
-
-
-
-
-
-
-    
+  
     let sound = document.querySelector("audio")
     const triggers = document.querySelectorAll(".js")
     const defaults = {
@@ -58,6 +49,7 @@ function start(){
         })
       );
     }
+    
     
 function confettiExplosion(origin) 
    {
