@@ -1,8 +1,5 @@
 
-
-
 function dataForm(){
-
     return (
             `
             <form id="formData" class="shadow p-3">
@@ -24,5 +21,4 @@ function dataForm(){
             `
     )
 }
-
 export default dataForm;
